@@ -1,0 +1,11 @@
+library(doBy)
+library(ggplot2)
+library(RColorBrewer)
+Sample <- read.table("test_data_QIS4_8_1X.txt",header = T,sep = "\t")
+Sample$seqnum <- seq(1,nrow(Sample),1)
+Sample$Chromosome <- factor(Sample$Chromosome, levels = unique(Sample$Chromosome))
+chrnum <- summaryBy(seqnum~Chromosome, Sample, FUN = median)
+
+# "ploidy" according to the species ploidy set to 2, 3, 4, etc, and adjust ylim()
+ggplot(Sample, aes(seqnum,Ratio*ploidy)) + theme(panel.grid = element_blank(), axis.line = element_line(color = 'black'), panel.background = element_rect(fill = 'transparent')) + geom_point(aes(color = Chromosome),size = 0.3, show.legend = FALSE) + scale_color_manual(values = rep(brewer.pal(12,"Set3"),2)) + ylim(0,4) + labs(x = 'Chromosome', y = 'copy number', title = 'QIS4_8_1X') + scale_x_continuous(breaks = chrnum$seqnum.median, labels = chrnum$Chromosome, expand = c(0, 0)) + geom_point(y = Sample$CopyNumber, color = 'black', size = 0.2)
+ggsave('QIS4_8_1X.png',width = 10.8, height = 1.63)
