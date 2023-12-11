@@ -7,7 +7,7 @@ Karyotyping of aneuploid and polyploid plants from low coverage whole-genome res
 4. GATK, https://software.broadinstitute.org/gatk/
 5. R (tested with 3.6.3 and 4.2.2) and Perl (tested with 5.32.1) are also required.
 # Citation
-Cao Y, Zhao K, Xu J, et al. Genome balance and dosage effect drive allopolyploid formation in Brassica[J]. PNAS, 2023, 120(14): e2217672120.
+Zhao et al. Karyotyping of aneuploid and polyploid plants from low coverage whole-genome resequencing. BMC Plant Biol. 2023 Dec 8;23(1):630. doi: 10.1186/s12870-023-04650-9. PMID: 38062348; PMCID: PMC10704825.
 # Programs
 Chromosome copy number analysis
 
